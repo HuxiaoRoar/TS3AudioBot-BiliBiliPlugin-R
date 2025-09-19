@@ -1,7 +1,9 @@
-# 🎵 TS3AudioBot Bilibili 插件
+# 🎵 TS3AudioBot Bilibili （虎啸改）插件
 
 > 一个功能强大的 TS3AudioBot 插件，让您可以在 TeamSpeak 中直接播放 Bilibili 视频的音频内容。
+（readme还没写完，先放着）
 
+[![Forked from xxmod/TS3AudioBot-BiliBiliPlugin](https://img.shields.io/badge/Forked%20from-xxmod-blue)](https://github.com/xxmod/TS3AudioBot-BiliBiliPlugin)
 [![License](https://img.shields.io/badge/license-MPL2.0-blue.svg)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-3.1-blue.svg)](https://dotnet.microsoft.com/download/dotnet/3.1)
 
@@ -14,37 +16,38 @@
 - 🎬 **多P支持** - 完美支持多分P视频的选择播放
 - 👥 **多用户** - 每个用户独立的登录状态和历史记录
 
+
 ## 📦 安装方法
 
 ### 方法一：快速安装（推荐）
 
 1. **下载插件文件**
 
-   - 下载 [BilibiliPlugin.dll](https://github.com/xxmod/TS3AudioBot-BiliBiliPlugin/blob/main/bin/Release/netcoreapp3.1/BilibiliPlugin.dll)
-   - 下载 [Newtonsoft.Json.dll](https://github.com/xxmod/TS3AudioBot-BiliBiliPlugin/raw/refs/heads/main/bin/Release/netcoreapp3.1/Newtonsoft.Json.dll)
+   - 下载 [BilibiliPlugin.dll](https://github.com/HuxiaoRoar/TS3AudioBot-BiliBiliPlugin-R/blob/main/bin/Release/netcoreapp3.1/BilibiliPlugin.dll)
+
 2. **下载代理服务**
 
-   - 下载 [bilibili-referer-proxy](https://github.com/xxmod/Bilibili-Referer-Proxy/releases/download/1.0.0/Proxy-windows.zip)
+   - 下载 [bilibili-referer-proxy](https://github.com/HuxiaoRoar/Bilibili-Referer-Proxy-R/releases/download/1.0.0/Proxy-windows.zip)
 3. **文件部署**
 
    - 将 `BilibiliPlugin.dll` 放置于 `TS3AudioBot/Plugins/` 目录下
-   - 将 `Newtonsoft.Json.dll` 放置于 `TS3AudioBot` 根目录
    - 解压代理服务到任意目录
 4. **权限配置**
    在 `rights.toml` 中添加以下权限：
 
    ```toml
-   "cmd.bilibili"
-   "cmd.bilibili.qr"
-   "cmd.bilibili.login"
-   "cmd.bilibili.history"
-   "cmd.bilibili.h"
-   "cmd.bilibili.hp" 
-   "cmd.bilibili.addh" 
-   "cmd.bilibili.bv" 
-   "cmd.bilibili.p" 
-   "cmd.bilibili.add" 
-   "cmd.bilibili.addp"
+   "cmd.b"
+   "cmd.b.qr"
+   "cmd.b.status"
+   "cmd.b.login"
+   "cmd.b.history"
+   "cmd.b.h"
+   "cmd.b.hp" 
+   "cmd.b.addh" 
+   "cmd.b.v" 
+   "cmd.b.vp" 
+   "cmd.b.add" 
+   "cmd.b.addp"
    ```
 
 ### 方法二：Release 包安装
@@ -73,9 +76,9 @@
 3. **开始使用**
 
    ```
-   !bilibili bv BV1UT42167xb    # 播放指定视频
-   !bilibili qr                 # 二维码登录
-   !bilibili history           # 查看观看历史
+   !b v BV1UT42167xb    # 播放指定视频
+   !b qr                 # 二维码登录
+   !b history           # 查看观看历史
    ```
 
 ## 📖 详细使用教程
@@ -85,7 +88,7 @@
 #### 二维码登录（推荐）
 
 ```
-!bilibili qr
+!b qr
 ```
 
 - 发送命令后会生成二维码链接
@@ -96,7 +99,7 @@
 #### Cookie 登录
 
 ```
-!bilibili login SESSDATA=你的SESSDATA; bili_jct=你的bili_jct;
+!b login SESSDATA=你的SESSDATA; bili_jct=你的bili_jct;
 ```
 
 - 手动输入 Cookie 信息进行登录
@@ -107,7 +110,7 @@
 #### 基础播放命令
 
 ```
-!bilibili bv BV1UT42167xb
+!b bv BV1UT42167xb
 ```
 
 - 直接播放指定 BV 号的视频音频
@@ -119,8 +122,18 @@
 当视频包含多个分P时：
 
 ```
+方法一、（推荐)
+用-号链接分P编号
+!b bv BV1UT42167xb-1
+# 直接播放1p
+
+!b add BV1UT42167xb-1
+# 添加1p到播放列表
+
+
+方法二、
 # 首先获取视频信息
-!bilibili bv BV1UT42167xb
+!b bv BV1UT42167xb
 
 # 系统会显示：
 # 视频包含 3 个分P：
@@ -128,10 +141,10 @@
 # 2. 第二集：正片
 # 3. 第三集：片尾
 # 
-# 请使用命令 !bilibili p [编号] 播放对应分P。
+# 请使用命令 !b p [编号] 播放对应分P。
 
 # 播放指定分P
-!bilibili p 2    # 播放第二集
+!b vp 2    # 播放第二集
 ```
 
 ### 📝 播放队列管理
@@ -139,7 +152,7 @@
 #### 添加到播放队列
 
 ```
-!bilibili add BV1UT42167xb
+!b add BV1UT42167xb
 ```
 
 - 将视频音频添加到播放队列，不会立即播放
@@ -149,10 +162,10 @@
 
 ```
 # 获取视频信息
-!bilibili add BV1UT42167xb
+!b add BV1UT42167xb
 
 # 添加指定分P到队列
-!bilibili addp 2    # 将第二集添加到队列
+!b addp 2    # 将第二集添加到队列
 ```
 
 ### 📜 历史记录功能
@@ -160,7 +173,7 @@
 #### 查看观看历史
 
 ```
-!bilibili history
+!b history
 ```
 
 - 显示最近观看的10个视频
@@ -171,13 +184,13 @@
 
 ```
 # 播放历史记录中的视频
-!bilibili h 3    # 播放历史记录第3个视频
+!b h 3    # 播放历史记录第3个视频
 
 # 如果历史视频是多P，会显示分P列表
-!bilibili hp 2   # 播放历史视频的第2个分P
+!b hp 2   # 播放历史视频的第2个分P
 
 # 添加历史视频到播放队列
-!bilibili addh 3  # 将历史记录第3个视频添加到队列
+!b addh 3  # 将历史记录第3个视频添加到队列
 ```
 
 ### 💡 使用技巧
@@ -185,39 +198,41 @@
 1. **批量播放**
 
    ```
-   !bilibili add BV1111111111    # 添加第一个视频
-   !bilibili add BV2222222222    # 添加第二个视频
-   !bilibili add BV3333333333    # 添加第三个视频
+   !b add BV1111111111    # 添加第一个视频
+   !b add BV2222222222    # 添加第二个视频
+   !b add BV3333333333    # 添加第三个视频
    ```
 2. **快速播放历史**
 
    ```
-   !bilibili history    # 查看历史
-   !bilibili h 1        # 直接播放第一个
+   !b history    # 查看历史
+   !b h 1        # 直接播放第一个
    ```
 3. **多P连播**
 
    ```
-   !bilibili bv BV1234567890    # 获取视频信息
-   !bilibili p 1                # 播放第一P
-   !bilibili addp 2             # 添加第二P到队列
-   !bilibili addp 3             # 添加第三P到队列
+   !b bv BV1234567890    # 获取视频信息
+   !b vp 1                # 播放第一P
+   !b addp 2             # 添加第二P到队列
+   !b addp 3             # 添加第三P到队列
    ```
 
 ## 📋 完整命令列表
 
 | 命令                  | 参数         | 功能描述               | 示例                                            |
 | --------------------- | ------------ | ---------------------- | ----------------------------------------------- |
-| `!bilibili qr`      | 无           | 生成二维码进行登录     | `!bilibili qr`                                |
-| `!bilibili login`   | Cookie字符串 | 使用Cookie登录         | `!bilibili login SESSDATA=xxx; bili_jct=xxx;` |
-| `!bilibili history` | 无           | 查看最近10条观看历史   | `!bilibili history`                           |
-| `!bilibili h`       | 历史编号     | 播放历史记录中的视频   | `!bilibili h 3`                               |
-| `!bilibili hp`      | 分P编号      | 播放历史视频的指定分P  | `!bilibili hp 2`                              |
-| `!bilibili addh`    | 历史编号     | 添加历史视频到播放队列 | `!bilibili addh 3`                            |
-| `!bilibili bv`      | BV号         | 播放指定BV号的视频     | `!bilibili bv BV1UT42167xb`                   |
-| `!bilibili p`       | 分P编号      | 播放当前视频的指定分P  | `!bilibili p 2`                               |
-| `!bilibili add`     | BV号         | 添加视频到播放队列     | `!bilibili add BV1UT42167xb`                  |
-| `!bilibili addp`    | 分P编号      | 添加指定分P到播放队列  | `!bilibili addp 2`                            |
+| `!b qr`      | 无           | 生成二维码进行登录     | `!b qr`                                |
+| `!b login`   | Cookie字符串 | 使用Cookie登录         | `!b login SESSDATA=xxx; bili_jct=xxx;` |
+| `!b b status`   | 无            |查看当前用户登录状态         | `!b b status` |
+| `!b history` | 无           | 查看最近10条观看历史   | `!b history`                           |
+| `!b h`       | 历史编号     | 播放历史记录中的视频   | `!b h 3`                               |
+| `!b hp`      | 分P编号      | 播放历史视频的指定分P  | `!b hp 2`                              |
+| `!b addh`    | 历史编号     | 添加历史视频到播放队列 | `!b addh 3`                            |
+| `!b v`      | BV号         | 播放指定BV号的视频     | `!b v BV1UT42167xb`                   |
+| `!b v`      | BV号-分P编号         | 播放指定BV分p的视频     | `!b v BV1UT42167xb-1`                   |
+| `!b vp`       | 分P编号      | 播放当前视频的指定分P  | `!b vp 2`                               |
+| `!b add`     | BV号         | 添加视频到播放队列     | `!b add BV1UT42167xb`                  |
+| `!b addp`    | 分P编号      | 添加指定分P到播放队列  | `!b addp 2`                            |
 
 ## 🛠️ 编译源代码
 
@@ -257,7 +272,7 @@ A: 检查代理服务 `proxy.exe` 是否正常运行，确保在端口 32181 上
 A: 确认 Cookie 信息正确，可尝试重新登录或使用二维码登录。
 
 **Q: 多P视频无法播放指定分P**
-A: 确保先使用 `!bilibili bv` 命令获取视频信息，再使用 `!bilibili p` 命令。
+A: 确保先使用 `!b bv` 命令获取视频信息，再使用 `!b p` 命令。
 
 **Q: 插件加载失败**
 A: 检查是否正确配置了权限，确保 `Newtonsoft.Json.dll` 在正确位置。
@@ -278,10 +293,17 @@ A: 检查是否正确配置了权限，确保 `Newtonsoft.Json.dll` 在正确位
    SESSDATA=你的SESSDATA值; bili_jct=你的bili_jct值;
    ```
 
+
+## 后续计划 
+支持批量添加视频合集、视频分p
+支持切换音乐后自动更换头像和名字。 
+
+
 ## 🙏 致谢
 
 感谢以下项目和开发者：
 
+- [`TS3AudioBot-BiliBiliPlugin`](https://github.com/xxmod/TS3AudioBot-BiliBiliPlugin) - 原版插件
 - [`bilibili-API-collect`](https://github.com/SocialSisterYi/bilibili-API-collect) - 提供详细的 Bilibili API 文档
 - [`ZHANGTIANYAO1/TS3AudioBot-NetEaseCloudmusic-plugin`](https://github.com/ZHANGTIANYAO1/TS3AudioBot-NetEaseCloudmusic-plugin) - 提供插件开发参考
 - [`Splamy/TS3AudioBot`](https://github.com/Splamy/TS3AudioBot) - 优秀的 TeamSpeak 音频机器人框架
@@ -296,7 +318,7 @@ A: 检查是否正确配置了权限，确保 `Newtonsoft.Json.dll` 在正确位
 
 ---
 
-**如果这个项目对您有帮助，请给个 ⭐ Star 支持一下！**
+**如果这个项目对您有帮助，请给个原项目 ⭐ Star 支持一下！**
 
 
 

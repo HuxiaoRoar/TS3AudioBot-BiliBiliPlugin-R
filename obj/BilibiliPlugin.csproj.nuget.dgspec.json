@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TS3bilibili\\傻逼版本管理\\TS3AudioBot-BiliBiliPlugin-main\\BilibiliPlugin.csproj": {}
+    "E:\\[git]\\HuxiaoRoar\\TS3AudioBot-BiliBiliPlugin-R\\BilibiliPlugin.csproj": {}
   },
   "projects": {
-    "D:\\TS3bilibili\\傻逼版本管理\\TS3AudioBot-BiliBiliPlugin-main\\BilibiliPlugin.csproj": {
-      "version": "1.0.0",
+    "E:\\[git]\\HuxiaoRoar\\TS3AudioBot-BiliBiliPlugin-R\\BilibiliPlugin.csproj": {
+      "version": "1.1.8",
       "restore": {
-        "projectUniqueName": "D:\\TS3bilibili\\傻逼版本管理\\TS3AudioBot-BiliBiliPlugin-main\\BilibiliPlugin.csproj",
+        "projectUniqueName": "E:\\[git]\\HuxiaoRoar\\TS3AudioBot-BiliBiliPlugin-R\\BilibiliPlugin.csproj",
         "projectName": "BilibiliPlugin",
-        "projectPath": "D:\\TS3bilibili\\傻逼版本管理\\TS3AudioBot-BiliBiliPlugin-main\\BilibiliPlugin.csproj",
-        "packagesPath": "C:\\Users\\30370\\.nuget\\packages\\",
-        "outputPath": "D:\\TS3bilibili\\傻逼版本管理\\TS3AudioBot-BiliBiliPlugin-main\\obj\\",
+        "projectPath": "E:\\[git]\\HuxiaoRoar\\TS3AudioBot-BiliBiliPlugin-R\\BilibiliPlugin.csproj",
+        "packagesPath": "C:\\Users\\ROAR\\.nuget\\packages\\",
+        "outputPath": "E:\\[git]\\HuxiaoRoar\\TS3AudioBot-BiliBiliPlugin-R\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\30370\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ROAR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,15 +43,30 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Costura.Fody": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.7.0, )"
+            },
+            "Fody": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.5.5, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.3, )"
+            },
+            "SixLabors.ImageSharp": {
+              "target": "Package",
+              "version": "[2.1.11, )"
             },
             "System.Threading.Tasks": {
               "target": "Package",
@@ -63,26 +84,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.411\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }
